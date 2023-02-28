@@ -13,7 +13,7 @@ public class WhatsappRepository {
     private HashMap<Group, List<Message>> groupMessageMap;
     private HashMap<Message, User> senderMap;
     private HashMap<Group, User> adminMap;
-    private HashMap<String, User> userMobile;
+    private HashMap<String, User> userData;
     private int customGroupCount;
     private int messageId;
 
@@ -22,17 +22,17 @@ public class WhatsappRepository {
         this.groupUserMap = new HashMap<Group, List<User>>();
         this.senderMap = new HashMap<Message, User>();
         this.adminMap = new HashMap<Group, User>();
-        this.userMobile = new HashMap<>();
+        this.userData = new HashMap<>();
         this.customGroupCount = 0;
         this.messageId = 0;
     }
 
     public boolean isNewUser(String mobile){
-        return userMobile.containsKey(mobile);
+        return userData.containsKey(mobile);
     }
 
     public void createUser(String name, String mobile){
-        userMobile.put(mobile, new User(name, mobile));
+        userData.put(mobile, new User(name, mobile));
     }
 
     public Group createGroup(List<User> users){
