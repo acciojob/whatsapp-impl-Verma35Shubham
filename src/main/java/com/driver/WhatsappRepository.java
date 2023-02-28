@@ -28,7 +28,7 @@ public class WhatsappRepository {
     }
 
     public boolean isNewUser(String mobile){
-        return userData.containsKey(mobile);
+        return userData.containsKey(mobile) ? false : true;
     }
 
     public void createUser(String name, String mobile){
